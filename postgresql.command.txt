@@ -1,0 +1,126 @@
+CREATE TABLE IF NOT EXISTS public.countries
+(
+    id bigint NOT NULL DEFAULT nextval('countries_id_seq'::regclass),
+    name character varying(255) COLLATE pg_catalog."default" NOT NULL,
+    CONSTRAINT countries_pkey PRIMARY KEY (id)
+)
+
+//////////////////////////
+
+CREATE TABLE IF NOT EXISTS public.cities
+(
+    id bigint NOT NULL DEFAULT nextval('cities_id_seq'::regclass),
+    name character varying(255) COLLATE pg_catalog."default" NOT NULL,
+    CONSTRAINT cities_pkey PRIMARY KEY (id)
+)
+
+//////////////////////////
+
+CREATE TABLE IF NOT EXISTS public.categories
+(
+    id bigint NOT NULL DEFAULT nextval('categories_id_seq'::regclass),
+    name character varying(255) COLLATE pg_catalog."default" NOT NULL,
+    CONSTRAINT categories_pkey PRIMARY KEY (id)
+)
+
+//////////////////////////
+
+CREATE TABLE IF NOT EXISTS public.users
+(
+    id bigint NOT NULL DEFAULT nextval('users_id_seq'::regclass),
+    name character varying(255) COLLATE pg_catalog."default" NOT NULL,
+    email character varying(255) COLLATE pg_catalog."default" NOT NULL,
+    country_id bigint,
+    city_id bigint,
+    address character varying(255) COLLATE pg_catalog."default",
+    dot date,
+    password character varying(255) COLLATE pg_catalog."default" NOT NULL,
+    CONSTRAINT users_pkey PRIMARY KEY (id),
+    CONSTRAINT users_email_unique UNIQUE (email),
+    CONSTRAINT user_city_fk FOREIGN KEY (city_id)
+        REFERENCES public.cities (id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE CASCADE,
+    CONSTRAINT user_country_fk FOREIGN KEY (country_id)
+        REFERENCES public.countries (id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE CASCADE,
+    CONSTRAINT valid_dot_check CHECK (dot <= '2004-07-15'::date)
+)
+
+CREATE INDEX IF NOT EXISTS user_country_idx
+    ON public.users USING btree
+    (country_id ASC NULLS LAST)
+    TABLESPACE pg_default;
+
+CREATE INDEX IF NOT EXISTS user_city_idx
+    ON public.users USING btree
+    (city_id ASC NULLS LAST)
+    TABLESPACE pg_default;
+
+//////////////////////////
+
+CREATE TABLE IF NOT EXISTS public.products
+(
+    id bigint NOT NULL DEFAULT nextval('products_id_seq'::regclass),
+    name character varying(255) COLLATE pg_catalog."default" NOT NULL,
+    price smallint NOT NULL,
+    user_id bigint,
+    category_id bigint,
+    CONSTRAINT products_pkey PRIMARY KEY (id),
+    CONSTRAINT product_category_fk FOREIGN KEY (category_id)
+        REFERENCES public.categories (id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE CASCADE,
+    CONSTRAINT product_user_fk FOREIGN KEY (user_id)
+        REFERENCES public.users (id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE CASCADE
+)
+
+CREATE INDEX IF NOT EXISTS product_user_idx
+    ON public.products USING btree
+    (user_id ASC NULLS LAST)
+    TABLESPACE pg_default;
+
+CREATE INDEX IF NOT EXISTS product_category_idx
+    ON public.products USING btree
+    (category_id ASC NULLS LAST)
+    TABLESPACE pg_default;
+
+//////////////////////////
+
+ALTER TABLE users ADD CONSTRAINT valid_dot_check CHECK (dot <= '2004-07-15');
+ALTER TABLE
+
+//////////////////////////
+
+INSERT INTO countries(id, name) VALUES ('1', 'Ukraine');
+INSERT 0 1
+
+//////////////////////////
+
+market=> INSERT INTO cities(id, name) VALUES ('1', 'Kropyvnytskyi');
+INSERT 0 1
+
+//////////////////////////
+
+market=> INSERT INTO users(id, name, email, country_id, city_id, address, dot, password) VALUES ('1', 'Peter Pan', 'peter@gmail.com', '1', '1', 'Komarova 5', '2005-04-03', '12345q');
+ERROR:  new row for relation "users" violates check constraint "valid_dot_check"
+DETAIL:  Failing row contains (1, Peter Pan, peter@gmail.com, 1, 1, Komarova 5, 2005-04-03, 12345q).
+
+//////////////////////////
+
+
+
+//////////////////////////
+
+market=> INSERT INTO users(id, name, email, country_id, city_id, address, dot, password) VALUES ('1', 'Peter Pan', 'peter@gmail.com', '1', '1', 'Komarova 5', '2001-04-03', '12345q');
+INSERT 0 1
+
+//////////////////////////
+
+INSERT INTO products(id, name, price, user_id, category_id) VALUES ('1', 'pair of black socks', '5' , '1', '1');
+INSERT 0 1
+
+//////////////////////////
