@@ -1,0 +1,414 @@
+//////////////////////////////////////////////////////////
+
+testDB=# SELECT doctor_id FROM member_applications LIMIT 10;
+ doctor_id
+ doctor_id 
+-----------
+     12308
+      6057
+      7853
+      8120
+          
+      9806
+          
+      5257
+          
+     12814
+(10 rows)
+
+//////////////////////////////////////////////////////////
+
+testDB=# SELECT id, doctor_id,user_id, mbi, dob FROM member_applications 
+LIMIT 100;
+ id  | doctor_id | user_id |     mbi     |    dob     
+-----+-----------+---------+-------------+------------
+ 363 |     12308 |    1016 | I2Y7AEFSG9S | 2010-01-07
+ 399 |      6057 |      40 | 1B8878EHEE3 | 1999-12-29
+ 427 |      7853 |    1410 | 35LF3NE8XR2 | 1999-10-08
+ 428 |      8120 |    2009 | EXJRUBAY0BY | 2018-05-26
+ 509 |           |    3162 | OMLZTU8XL6Q | 1980-11-20
+ 510 |      9806 |    3162 | VSB297E8GRT | 1993-06-03
+ 562 |           |    3081 |             | 
+ 676 |      5257 |    1512 | DRE3S7JW67A | 2000-06-14
+ 677 |           |    3508 | X1N1KTI4S1P | 1987-10-16
+ 700 |     12814 |      40 | 7FQZ4Z7V3G1 | 1977-12-31
+ 701 |     12814 |      40 | HV4WHDDFV3S | 1988-11-05
+ 709 |      8264 |      40 | BEXG1SQZ6ZP | 1999-11-23
+ 710 |      5179 |    1510 | OH0C5OKRFL0 | 1985-10-16
+ 365 |      1683 |    2363 | 3G4QVLY8R44 | 2006-06-30
+ 744 |           |    1929 | T5ZIJH227XX | 1982-03-24
+ 366 |      6189 |    3109 | 0W5GFRI0P3A | 2004-08-20
+ 401 |      5734 |      40 | GNHNZT3BMXW | 2004-02-16
+ 402 |      5872 |    1369 | P07LC8YUBFB | 1977-02-13
+ 429 |      8170 |    2009 | P00T6GFWC9M | 2008-12-09
+ 464 |      8274 |    1883 | OP62WJS63RB | 1991-01-05
+ 465 |           |     504 |             | 
+ 602 |      9235 |      40 | O0A170JKSSW | 2015-08-26
+ 649 |      7903 |    3355 | EI53BIMW3DS | 2004-04-04
+ 678 |      5188 |    1003 | F9TXLZ09YLI | 1983-01-07
+ 686 |           |    3070 |             | 
+ 702 |      5881 |    1435 | ZNVAI1CEMLI | 2016-10-12
+ 711 |           |     460 | SYIFU88DKLC | 
+ 825 |           |    1929 | XBFYFSAJPQQ | 2016-08-19
+ 430 |      3447 |     703 | M0CLJAN85XX | 2011-10-30
+ 431 |       825 |    1435 | AK7YHA73DGR | 1999-10-27
+ 466 |      1657 |     504 | BLOBSKFKO89 | 1989-06-25
+ 512 |      5097 |      38 | LKZYNQMG4AY | 1977-05-18
+ 555 |      5379 |      40 | NOSTCFLUKZB | 1979-01-25
+ 556 |      1503 |    3297 | K6825XO9JQ2 | 2014-02-08
+ 603 |      8400 |    1016 | ELZBERG61G8 | 1983-04-17
+ 679 |      8269 |    2704 | X8AOJU6YUVL | 2015-02-03
+ 687 |     12820 |    3255 | 1CTCHIWDUXS | 2008-09-07
+ 688 |      8260 |    3255 | OB0K5X8OVTJ | 1979-10-16
+ 703 |      4263 |      40 | 6XVXFEJ20RZ | 1981-10-03
+ 704 |      9106 |      40 | 9P75SRRWLRS | 1974-09-04
+ 712 |           |     460 |             | 
+ 368 |      7711 |    1410 | VV9AMBTHCQ7 | 1998-01-10
+ 403 |      6076 |      40 | UI9ROCGQJNY | 1992-05-07
+ 559 |      8228 |      40 | 2OQQ7ZH07EY | 1989-01-20
+ 404 |      8352 |    1410 | ATW5W8ZNZ6I | 1977-07-02
+ 432 |      6313 |    1435 | PP6Z096JLH9 | 1970-05-10
+ 467 |     11883 |      40 | JGKY6RZ631P | 1989-03-22
+ 514 |     11239 |    3022 | 6P6FSRA40E2 | 2002-06-14
+ 557 |      8076 |      40 | 2SVP9TBD0WU | 2014-04-29
+ 604 |     12551 |      40 | VZPBBS4M30H | 1973-04-30
+ 605 |     10547 |      40 | T2Y2T2QA6WA | 2020-05-23
+ 652 |           |    1711 |             | 
+ 689 |      8260 |    3255 | F79GVUTHKJS | 1987-12-22
+ 705 |      2360 |    3573 | SWKIVDV7LD5 | 1993-03-11
+ 713 |      4938 |     460 | OFE34KQ29OJ | 2009-04-03
+ 218 |      5976 |      38 | TI1H6BTYHYZ | 2000-03-23
+ 369 |      7711 |    1410 | SKB4XG4J8J7 | 1981-12-16
+ 370 |     12148 |    1410 | Q9XHK05DEXA | 1993-10-23
+ 405 |     12313 |    1410 | 6ZSXG2JBHMH | 2006-04-22
+ 433 |       434 |    1435 | 1SE4KX18VGN | 1978-02-14
+ 468 |      2429 |    3241 | ER7I3RFJDTV | 1998-06-27
+ 515 |      7950 |    1410 | Z3HM7LPQTT2 | 2002-06-10
+ 558 |      8076 |      40 | OKCAW089KVM | 1983-02-07
+ 606 |     10430 |    2233 | 4XQ81JRSEVL | 1987-11-28
+ 695 |           |    2543 | 3NHO9PCCXTB | 
+ 706 |     13123 |      38 | 898DY2MUYCX | 2014-05-16
+ 714 |     11801 |      40 | N1Q7JEHYNTO | 2019-04-30
+ 406 |      6313 |    1435 | WW7NTYGTY88 | 2016-05-18
+ 407 |      9236 |    3241 | CBFHGD5QHCL | 1971-06-19
+ 434 |       682 |    1510 | 9JTV1S779R7 | 2004-09-01
+ 435 |      9234 |     121 | DZ3EPFLNDX4 | 1977-05-16
+ 469 |      1345 |      40 | AIULIR87PFA | 2003-09-30
+ 607 |      9235 |      40 | 5QQSJ1A5MEI | 1983-11-06
+ 654 |     11883 |    3195 | TJA9AEAOUW3 | 1991-01-28
+ 691 |      8147 |    3255 | KNADHDHMQEW | 1993-05-20
+ 707 |      1885 |    3573 | 9UVWENYIUV9 | 1999-12-03
+ 716 |      8260 |    3255 | 8WHZRDC9QXG | 2003-12-07
+ 372 |     12000 |      40 | I884ABKQPZ9 | 2014-12-05
+ 408 |      5184 |    3217 | F2NHOGS9DS6 | 1981-01-09
+ 436 |       434 |    1435 | VSDMCFDCIEN | 1984-09-15
+ 470 |      9662 |     504 | AON5GHRFKUI | 2004-08-05
+ 471 |      7756 |    1410 | LUAPE3XFZJR | 1976-09-14
+ 517 |      9231 |      38 | X2KOABWV2BT | 2004-06-26
+ 518 |           |      88 | WB7P6CNBSXL | 
+ 519 |      2101 |    3217 | XK73TT03AN4 | 2002-07-12
+ 612 |           |    1531 |             | 
+ 560 |       513 |    1508 | V69N4ZI3RTB | 1996-02-28
+ 561 |           |    1441 |             | 
+ 608 |       569 |    1510 | TAV5DUOIMUL | 1979-01-19
+ 656 |      8235 |      49 | 8RHNSGD4IJE | 2010-03-08
+ 373 |      8072 |    3250 | QKJPOEL5L0N | 2008-05-22
+ 409 |       588 |    1386 | GFDDP259OQV | 2016-12-16
+ 410 |       548 |    1510 | 8F445BY54BZ | 2014-02-22
+ 437 |      8355 |    1435 | WH9DG254U4P | 2016-09-15
+ 438 |      7971 |    1410 | BVJLE1389KK | 2002-05-14
+ 472 |      7756 |    1410 | N6CDZ2E33S8 | 1999-11-17
+ 473 |      2442 |    3267 | 37HF7Y5MOHF | 2005-08-22
+ 520 |      9244 |      38 | ZPLC23ODX9T | 1993-12-22
+ 610 |     10430 |    2233 | QW1GI12B13I | 1999-10-29
+ 420 |      8395 |    1435 | UIHRRTTSVU6 | 2010-09-17
+(100 rows)
+
+//////////////////////////////////////////////////////////
+
+testDB=# SELECT (CURRENT_DATE - dob)/365 age, id, doctor_id, user_id, dob 
+FROM member_applications WHERE id < 100  ORDER BY age DESC LIMIT 10;
+
+ age | id | doctor_id | user_id |    dob     
+-----+----+-----------+---------+------------
+     | 48 |           |      62 | 
+     | 89 |           |    1632 | 
+     | 67 |           |    2141 | 
+  51 | 28 |      5207 |      38 | 1970-11-06
+  50 | 93 |      4884 |      40 | 1972-04-23
+  49 | 84 |      2392 |      38 | 1973-06-30
+  49 | 95 |      1534 |      38 | 1973-04-02
+  49 | 79 |      1693 |      40 | 1973-05-12
+  48 | 61 |      1555 |      38 | 1973-09-11
+  48 | 96 |      1448 |      38 | 1973-09-25
+(10 rows)
+
+//////////////////////////////////////////////////////////
+
+testDB=# SELECT id, doctor_id,user_id, mbi, dob FROM member_applications WHERE mbi = 'E3FV7SGMDQJ';
+ id  | doctor_id | user_id |     mbi     |    dob     
+-----+-----------+---------+-------------+------------
+ 202 |      2156 |    2954 | E3FV7SGMDQJ | 2008-06-06
+(1 row)
+
+//////////////////////////////////////////////////////////
+
+testDB=# SELECT (CURRENT_DATE - dob)/365 age, id, doctor_id, user_id, dob 
+FROM member_applications WHERE id < 200  ORDER BY age DESC LIMIT 10 OFFSET 10;
+ age | id  | doctor_id | user_id |    dob     
+-----+-----+-----------+---------+------------
+  51 | 139 |      5880 |    1435 | 1971-02-03
+  51 | 145 |           |      38 | 1970-11-17
+  50 |  93 |      4884 |      40 | 1972-04-23
+  49 |  84 |      2392 |      38 | 1973-06-30
+  49 |  79 |      1693 |      40 | 1973-05-12
+  49 | 149 |      8527 |     917 | 1972-10-23
+  49 |  95 |      1534 |      38 | 1973-04-02
+  49 | 138 |      5880 |    1435 | 1973-04-24
+  49 | 166 |      8395 |    2895 | 1972-10-28
+  49 | 191 |      9662 |      40 | 1972-10-29
+(10 rows)
+
+//////////////////////////////////////////////////////////
+
+testDB=# SELECT id, doctor_id,user_id, mbi, dob, status FROM member_applications 
+WHERE status = 'COMPLETED' LIMIT 10;
+ id  | doctor_id | user_id |     mbi     |    dob     |  status   
+-----+-----------+---------+-------------+------------+-----------
+ 363 |     12308 |    1016 | I2Y7AEFSG9S | 2010-01-07 | COMPLETED
+ 399 |      6057 |      40 | 1B8878EHEE3 | 1999-12-29 | COMPLETED
+ 427 |      7853 |    1410 | 35LF3NE8XR2 | 1999-10-08 | COMPLETED
+ 428 |      8120 |    2009 | EXJRUBAY0BY | 2018-05-26 | COMPLETED
+ 510 |      9806 |    3162 | VSB297E8GRT | 1993-06-03 | COMPLETED
+ 676 |      5257 |    1512 | DRE3S7JW67A | 2000-06-14 | COMPLETED
+ 700 |     12814 |      40 | 7FQZ4Z7V3G1 | 1977-12-31 | COMPLETED
+ 701 |     12814 |      40 | HV4WHDDFV3S | 1988-11-05 | COMPLETED
+ 709 |      8264 |      40 | BEXG1SQZ6ZP | 1999-11-23 | COMPLETED
+ 710 |      5179 |    1510 | OH0C5OKRFL0 | 1985-10-16 | COMPLETED
+(10 rows)
+
+//////////////////////////////////////////////////////////
+
+testDB=# SELECT title, first_name, phone, STATUS FROM member_applications 
+WHERE status = 'ARCHIVED' OR status = 'REJECTED'  LIMIT 10;
+ title | first_name |     phone      |  status  
+-------+------------+----------------+----------
+ Mr.   |            |                | REJECTED
+ Mr.   |            |                | ARCHIVED
+ Ms.   | Kiana      | (844) 959-4213 | ARCHIVED
+ Mrs.  | Edd        |                | ARCHIVED
+ Mr.   | Kolby      |                | ARCHIVED
+ Ms.   | Jacky      | (888) 241-4223 | ARCHIVED
+ Mr.   |            |                | ARCHIVED
+ Mr.   | Alexie     | 1-877-754-3051 | ARCHIVED
+ Mrs.  | Audreanne  | (877) 561-3370 | ARCHIVED
+ Mr.   | Sim        | 1-855-808-2851 | REJECTED
+
+//////////////////////////////////////////////////////////
+
+testDB=# SELECT title, first_name, phone, STATUS FROM member_applications 
+WHERE status != 'ARCHIVED' AND  status != 'REJECTED' AND status != 'DRAFT'  LIMIT 20;
+ title | first_name |     phone      |  status   
+-------+------------+----------------+-----------
+ Mr.   | Kenneth    | 866-856-8920   | COMPLETED
+ Mrs.  | Valentina  | 800-503-6555   | COMPLETED
+ Ms.   | Tabitha    | 877.899.6122   | COMPLETED
+ Mr.   | Garret     | 844.609.7464   | COMPLETED
+ Mr.   | Jose       | (888) 591-4490 | COMPLETED
+ Mrs.  | Patience   | 1-888-536-0757 | COMPLETED
+ Mrs.  | Emily      | 844-269-8283   | COMPLETED
+ Mr.   | Jamarcus   | (877) 830-4443 | COMPLETED
+ Ms.   | Verdie     | 866.956.7635   | COMPLETED
+ Mrs.  | Frederique | (877) 348-6118 | COMPLETED
+ Mr.   | Guillermo  | 888.215.4758   | COMPLETED
+ Ms.   | Nellie     | 855.860.5582   | COMPLETED
+ Mr.   | Evan       | (888) 399-9857 | COMPLETED
+ Mr.   | Bo         | 1-844-757-3800 | COMPLETED
+ Mr.   | Antonetta  | 855-208-7817   | COMPLETED
+ Mrs.  | Antonietta | (844) 721-2353 | COMPLETED
+ Mr.   | King       | 1-844-615-8631 | COMPLETED
+ Mr.   | Dudley     | 800.242.0789   | COMPLETED
+ Mr.   | Bryon      | (855) 354-3141 | COMPLETED
+ Mr.   | Selmer     | 800-969-7914   | COMPLETED
+(20 rows)
+
+//////////////////////////////////////////////////////////
+
+testDB=# SELECT doctor_id, COUNT (doctor_id) FROM member_applications GROUP BY doctor_id ORDER BY count DESC LIMIT 3;
+ doctor_id | count 
+-----------+-------
+    205474 |    13
+      9236 |    10
+      8260 |     9
+
+//////////////////////////////////////////////////////////
+
+testDB=# SELECT title, first_name, phone,email FROM member_applications WHERE email LIKE '%gmail%'  LIMIT 10;
+ title | first_name |     phone      |           email            
+-------+------------+----------------+----------------------------
+ Ms.   | Bret       | (866) 382-6312 | jaclyn.prosacco@gmail.com
+ Mr.   | Guillermo  | 888.215.4758   | urunte@gmail.com
+ Ms.   | Kiana      | (844) 959-4213 | nstreich@gmail.com
+ Ms.   | Ruby       | 866-613-3465   | kallie.spencer@gmail.com
+ Mr.   | Federico   | 888-693-6264   | owisoky@gmail.com
+ Mr.   | Kristofer  | 1-844-500-8580 | ogleason@gmail.com
+ Ms.   | Madaline   | 1-877-482-3742 | kemmer.roselyn@gmail.com
+ Mr.   | Dimitri    | (877) 628-6604 | walker.marion@gmail.com
+ Mr.   | Geraldine  | 1-888-964-1288 | cartwright.skyla@gmail.com
+ Mr.   | Jared      | 800-938-5569   | nhowe@gmail.com
+(10 rows)
+
+//////////////////////////////////////////////////////////
+
+testDB=# SELECT first_name,  last_name, mbi, application_date FROM member_applications 
+WHERE age(CURRENT_DATE, '2021-04-05') >age(CURRENT_DATE, application_date) AND signed_date IS NOT NULL  LIMIT 10;
+ first_name | last_name |     mbi     | application_date 
+------------+-----------+-------------+------------------
+ Jazmin     | Anderson  | H1ER1OJMZK3 | 2021-04-11
+ Laurine    | Gutmann   | TUKQBNY9UDC | 2021-04-27
+ Bernie     | Bednar    | VXPBG476UKV | 2021-09-16
+ Olga       | Flatley   | DQ7WZDFMOLU | 2021-09-26
+ Stephan    | Gutkowski | P3UO1W2W5PM | 2021-10-06
+ Dion       | Daniel    | 5T0DWLXBHH5 | 2021-09-20
+ Amir       | Stanton   | BDUV1CJFVOP | 2021-10-04
+ Augustus   | Greenholt | MCM6UI8YENZ | 2021-10-04
+ Mavis      | Cormier   | VGJKKW1KWRO | 2021-10-08
+ Taylor     | Veum      | U2UR6B7UFC2 | 2021-10-08
+(10 rows)
+
+//////////////////////////////////////////////////////////
+
+testDB=# SELECT CONCAT (first_name, ' ', last_name) AS "full_name", physical_state FROM member_applications 
+WHERE physical_state = 'UT' OR physical_state = 'NM' OR physical_state = 'AZ' LIMIT 10;
+     full_name      | physical_state 
+--------------------+----------------
+ Kenneth Kunze      | AZ
+ Tabitha Quitzon    | AZ
+ Patience Hackett   | AZ
+ Frederique Streich | AZ
+ Antonetta Fadel    | AZ
+ Bryon Zieme        | AZ
+ Selmer Doyle       | AZ
+                    | AZ
+ Carli Purdy        | AZ
+ Nat Bednar         | AZ
+(10 rows)
+
+//////////////////////////////////////////////////////////
+
+testDB=# SELECT physical_address1, physical_zip FROM member_applications 
+WHERE physical_zip = '32766' OR physical_zip = '55359' OR physical_zip = '30642' OR physical_zip = '60158' 
+OR physical_zip = '54229' LIMIT 10;
+        physical_address1         | physical_zip 
+----------------------------------+--------------
+ 63820 Alva Rest                  | 32766
+ 4803 Arlo Port                   | 60158
+ 89428 Trenton Alley Suite 745    | 30642
+ 2219 Catherine Mission Suite 813 | 54229
+ 12192 Patsy Lock                 | 55359
+(5 rows)
+
+//////////////////////////////////////////////////////////
+
+testDB=# SELECT id, first_name, email FROM member_applications 
+WHERE receive_notifications = false AND  email = '' AND first_name != ''  ORDER BY first_name ASC LIMIT 10;
+  id  | first_name | email 
+------+------------+-------
+ 8019 | Aaliyah    | 
+  782 | Aaron      | 
+ 7159 | Abagail    | 
+ 2029 | Abagail    | 
+ 2719 | Abbey      | 
+ 2580 | Abbey      | 
+ 3639 | Abbie      | 
+ 7481 | Abbie      | 
+ 1046 | Abbie      | 
+ 1594 | Abbie      | 
+(10 rows)
+
+//////////////////////////////////////////////////////////
+
+testDB=# SELECT first_name,  last_name, phone FROM member_applications 
+WHERE phone LIKE '%123' LIMIT 10;
+ first_name | last_name |     phone      
+------------+-----------+----------------
+ Danika     | Kerluke   | (888) 751-4123
+ Hollis     | Kshlerin  | 800.544.2123
+ Danika     | Friesen   | 877.554.8123
+ Eveline    | Lockman   | 877-633-2123
+ Mina       | Heller    | 844.639.9123
+ Wendy      | Kulas     | 844.287.8123
+(6 rows)
+
+//////////////////////////////////////////////////////////
+
+testDB=# SELECT first_name,  last_name, phone FROM member_applications 
+WHERE phone LIKE '%333' OR phone LIKE '%333%' OR phone LIKE '333%' LIMIT 10;
+ first_name | last_name |     phone      
+------------+-----------+----------------
+ Stuart     | Smitham   | 877-483-1333
+ Soledad    | Davis     | 844.333.3278
+ Rylan      | Lemke     | (800) 206-0333
+ Mona       | Quigley   | 800-967-1333
+ Josefa     | Stamm     | (888) 333-7566
+ Ariel      | Lynch     | 1-800-450-3332
+ Imogene    | Hintz     | 800-333-8183
+ Horace     | Nader     | 877.542.3334
+ Sandrine   | Jast      | 888.980.7333
+ Michale    | Olson     | (888) 838-0333
+(10 rows)
+
+//////////////////////////////////////////////////////////
+
+testDB=# SELECT first_name, last_name, phone, gender,physical_state FROM member_applications 
+WHERE gender = 'M' AND physical_state = 'AZ' OR gender = 'F' AND physical_state = 'NM'  LIMIT 10;
+ first_name | last_name |     phone      | gender | physical_state 
+------------+-----------+----------------+--------+----------------
+ Kenneth    | Kunze     | 866-856-8920   | M      | AZ
+ Bryon      | Zieme     | (855) 354-3141 | M      | AZ
+ Selmer     | Doyle     | 800-969-7914   | M      | AZ
+            |           |                | M      | AZ
+ Nat        | Bednar    | (866) 399-1748 | M      | AZ
+ Hugh       | Kuphal    | 866.549.2211   | M      | AZ
+ Westley    | Dooley    | 1-866-219-4654 | M      | AZ
+ Jensen     | Howell    | 877.438.6684   | M      | AZ
+ Ludwig     | Franecki  | 1-800-558-1696 | M      | AZ
+ Sofia      | Pagac     | 1-855-688-7125 | M      | AZ
+(10 rows)
+
+//////////////////////////////////////////////////////////
+
+testDB=# SELECT DISTINCT first_name FROM member_applications ORDER BY first_name  LIMIT 10;
+ first_name 
+------------
+ 
+ Aaliyah
+ Aaron
+ Abagail
+ Abbey
+ Abbie
+ Abbigail
+ Abby
+ Abdiel
+ Abdul
+(10 rows)
+
+//////////////////////////////////////////////////////////
+
+testDB=# SELECT first_name, deleted, created, age(deleted, created) time FROM member_applications 
+WHERE deleted IS NOT NULL AND age(deleted, created) < '01:00:00' LIMIT 10;
+ first_name |       deleted       |       created       |   time   
+------------+---------------------+---------------------+----------
+ Edd        | 2021-02-14 01:33:07 | 2021-02-14 00:51:44 | 00:41:23
+ Kolby      | 2021-02-14 01:33:26 | 2021-02-14 01:26:04 | 00:07:22
+            | 2020-10-15 07:45:59 | 2020-10-15 07:44:39 | 00:01:20
+ Skye       | 2020-10-23 21:43:31 | 2020-10-23 21:39:11 | 00:04:20
+ Princess   | 2020-10-26 19:32:54 | 2020-10-26 19:32:20 | 00:00:34
+ Leda       | 2020-10-15 15:13:54 | 2020-10-15 15:10:25 | 00:03:29
+            | 2020-10-15 04:21:50 | 2020-10-15 04:21:26 | 00:00:24
+ Haylee     | 2020-10-23 23:49:39 | 2020-10-23 23:48:38 | 00:01:01
+ Layne      | 2020-11-07 00:09:30 | 2020-11-07 00:04:46 | 00:04:44
+ Joel       | 2020-10-15 15:13:49 | 2020-10-15 15:06:07 | 00:07:42
+(10 rows)
+
+//////////////////////////////////////////////////////////
