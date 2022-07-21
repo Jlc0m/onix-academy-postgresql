@@ -126,21 +126,20 @@ LIMIT 100;
 
 //////////////////////////////////////////////////////////
 
-testDB=# SELECT (CURRENT_DATE - dob)/365 age, id, doctor_id, user_id, dob 
-FROM member_applications WHERE id < 100  ORDER BY age DESC LIMIT 10;
-
- age | id | doctor_id | user_id |    dob     
------+----+-----------+---------+------------
-     | 48 |           |      62 | 
-     | 89 |           |    1632 | 
-     | 67 |           |    2141 | 
-  51 | 28 |      5207 |      38 | 1970-11-06
-  50 | 93 |      4884 |      40 | 1972-04-23
-  49 | 84 |      2392 |      38 | 1973-06-30
-  49 | 95 |      1534 |      38 | 1973-04-02
-  49 | 79 |      1693 |      40 | 1973-05-12
-  48 | 61 |      1555 |      38 | 1973-09-11
-  48 | 96 |      1448 |      38 | 1973-09-25
+testDB=# SELECT age(CURRENT_DATE, dob) age, id, doctor_id, user_id, dob FROM member_applications 
+WHERE dob IS NOT NULL ORDER BY age DESC LIMIT 10;
+           age           |  id  | doctor_id | user_id |    dob     
+-------------------------+------+-----------+---------+------------
+ 52 years 6 mons 19 days | 3205 |           |    1551 | 1970-01-02
+ 52 years 6 mons 19 days | 5067 |           |      38 | 1970-01-02
+ 52 years 6 mons 16 days | 7289 |           |    1735 | 1970-01-05
+ 52 years 6 mons 16 days | 3212 |           |      40 | 1970-01-05
+ 52 years 6 mons 15 days |  578 |      8147 |    3255 | 1970-01-06
+ 52 years 6 mons 11 days | 6017 |           |    2008 | 1970-01-10
+ 52 years 6 mons 8 days  | 8481 |           |    1694 | 1970-01-13
+ 52 years 6 mons 4 days  | 9050 |           |    2201 | 1970-01-17
+ 52 years 6 mons 3 days  | 7666 |           |    2008 | 1970-01-18
+ 52 years 6 mons 3 days  | 8232 |           |      40 | 1970-01-18
 (10 rows)
 
 //////////////////////////////////////////////////////////
@@ -153,20 +152,20 @@ testDB=# SELECT id, doctor_id,user_id, mbi, dob FROM member_applications WHERE m
 
 //////////////////////////////////////////////////////////
 
-testDB=# SELECT (CURRENT_DATE - dob)/365 age, id, doctor_id, user_id, dob 
-FROM member_applications WHERE id < 200  ORDER BY age DESC LIMIT 10 OFFSET 10;
- age | id  | doctor_id | user_id |    dob     
------+-----+-----------+---------+------------
-  51 | 139 |      5880 |    1435 | 1971-02-03
-  51 | 145 |           |      38 | 1970-11-17
-  50 |  93 |      4884 |      40 | 1972-04-23
-  49 |  84 |      2392 |      38 | 1973-06-30
-  49 |  79 |      1693 |      40 | 1973-05-12
-  49 | 149 |      8527 |     917 | 1972-10-23
-  49 |  95 |      1534 |      38 | 1973-04-02
-  49 | 138 |      5880 |    1435 | 1973-04-24
-  49 | 166 |      8395 |    2895 | 1972-10-28
-  49 | 191 |      9662 |      40 | 1972-10-29
+testDB=# SELECT age(CURRENT_DATE, dob) age, id, doctor_id, user_id, dob FROM member_applications 
+WHERE dob IS NOT NULL ORDER BY age DESC LIMIT 10 OFFSET 10;
+           age           |  id  | doctor_id | user_id |    dob     
+-------------------------+------+-----------+---------+------------
+ 52 years 6 mons 3 days  | 1916 |           |    1929 | 1970-01-18
+ 52 years 6 mons 1 day   | 7227 |           |    1418 | 1970-01-20
+ 52 years 6 mons 1 day   | 7311 |           |    1707 | 1970-01-20
+ 52 years 5 mons 29 days | 6947 |           |    1345 | 1970-01-23
+ 52 years 5 mons 28 days | 3970 |           |    1626 | 1970-01-24
+ 52 years 5 mons 27 days |  919 |           |    1929 | 1970-01-25
+ 52 years 5 mons 24 days | 8372 |           |     837 | 1970-01-28
+ 52 years 5 mons 23 days | 6125 |           |    2008 | 1970-01-29
+ 52 years 5 mons 23 days | 5075 |           |    1568 | 1970-01-29
+ 52 years 5 mons 22 days | 3475 |           |     113 | 1970-01-30
 (10 rows)
 
 //////////////////////////////////////////////////////////
